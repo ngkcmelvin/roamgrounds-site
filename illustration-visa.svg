@@ -1,0 +1,25 @@
+<svg viewBox="0 0 480 420" xmlns="http://www.w3.org/2000/svg">
+  <!-- passport book -->
+  <g transform="translate(90,60)">
+    <rect x="0" y="0" width="230" height="300" rx="14" fill="#FFFFFF" transform="rotate(-6 115 150)"/>
+    <rect x="30" y="20" width="230" height="300" rx="14" fill="#1B2540" transform="rotate(4 145 170)"/>
+    <rect x="30" y="20" width="230" height="300" rx="14" fill="none" stroke="#FFC94A" stroke-width="3" opacity="0.5" transform="rotate(4 145 170)"/>
+    <!-- emblem on cover -->
+    <g transform="translate(145,170) rotate(4)">
+      <circle cx="0" cy="-30" r="34" fill="none" stroke="#FFC94A" stroke-width="3" opacity="0.8"/>
+      <circle cx="0" cy="-30" r="8" fill="#FFC94A"/>
+    </g>
+  </g>
+
+  <!-- big stamp overlapping the book -->
+  <g transform="translate(250,190) rotate(-16)">
+    <circle cx="0" cy="0" r="95" fill="#FF6B4A"/>
+    <circle cx="0" cy="0" r="95" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-dasharray="4 8" opacity="0.6"/>
+    <circle cx="0" cy="0" r="70" fill="none" stroke="#FFFFFF" stroke-width="2" opacity="0.4"/>
+    <text x="0" y="-8" text-anchor="middle" font-family="'Poppins', sans-serif" font-weight="700" font-size="20" fill="#FFFFFF">APPROVED</text>
+    <text x="0" y="20" text-anchor="middle" font-family="'IBM Plex Mono', monospace" font-size="13" fill="#FFFFFF" opacity="0.85">ASIA-PACIFIC</text>
+  </g>
+
+  <!-- small teal accent dot -->
+  <circle cx="80" cy="330" r="10" fill="#14B8AE"/>
+</svg>

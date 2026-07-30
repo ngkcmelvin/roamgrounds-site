@@ -1,0 +1,22 @@
+<svg viewBox="0 0 420 100" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .wordmark { font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 42px; fill: #1B2540; }
+      .wordmark tspan.accent { fill: #FF6B4A; }
+    </style>
+  </defs>
+
+  <!-- Icon (same mark as logo-icon.svg, scaled to fit) -->
+  <g transform="translate(10,10)">
+    <circle cx="40" cy="40" r="38" fill="#FF6B4A"/>
+    <circle cx="40" cy="40" r="38" fill="none" stroke="#FFFFFF" stroke-width="1.5" stroke-dasharray="3 5" opacity="0.5"/>
+    <g transform="translate(40,40)">
+      <path d="M 0 -25 L 7 0 L 0 -6 L -7 0 Z" fill="#14B8AE"/>
+      <path d="M 0 25 L 7 0 L 0 6 L -7 0 Z" fill="#FFFFFF" opacity="0.85"/>
+      <circle cx="0" cy="0" r="5" fill="#FFC94A"/>
+    </g>
+  </g>
+
+  <!-- Wordmark -->
+  <text x="105" y="65" class="wordmark">Roam<tspan class="accent">grounds</tspan></text>
+</svg>

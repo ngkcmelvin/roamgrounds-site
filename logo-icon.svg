@@ -1,0 +1,16 @@
+<svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+  <!-- Outer stamp ring -->
+  <circle cx="60" cy="60" r="52" fill="#FF6B4A"/>
+  <circle cx="60" cy="60" r="52" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-dasharray="4 6" opacity="0.5"/>
+
+  <!-- Compass / roam mark -->
+  <g transform="translate(60,60)">
+    <!-- North point (teal) -->
+    <path d="M 0 -34 L 10 0 L 0 -8 L -10 0 Z" fill="#14B8AE"/>
+    <!-- South point (white, softer) -->
+    <path d="M 0 34 L 10 0 L 0 8 L -10 0 Z" fill="#FFFFFF" opacity="0.85"/>
+    <!-- center dot -->
+    <circle cx="0" cy="0" r="7" fill="#FFC94A"/>
+    <circle cx="0" cy="0" r="7" fill="none" stroke="#1B2540" stroke-width="1.5" opacity="0.15"/>
+  </g>
+</svg>

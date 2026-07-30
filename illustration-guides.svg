@@ -1,0 +1,37 @@
+<svg viewBox="0 0 480 420" xmlns="http://www.w3.org/2000/svg">
+  <!-- soft landmass blobs -->
+  <ellipse cx="150" cy="120" rx="90" ry="60" fill="#FFFFFF"/>
+  <ellipse cx="340" cy="180" rx="110" ry="75" fill="#FFFFFF"/>
+  <ellipse cx="200" cy="300" rx="130" ry="80" fill="#FFFFFF"/>
+
+  <!-- dashed route path -->
+  <path d="M 120 130 Q 220 60 320 160 Q 380 230 260 300 Q 180 340 130 290"
+        fill="none" stroke="#1B2540" stroke-width="3" stroke-dasharray="2 10" stroke-linecap="round" opacity="0.35"/>
+
+  <!-- pins -->
+  <g>
+    <circle cx="120" cy="130" r="14" fill="#FF6B4A"/>
+    <circle cx="120" cy="130" r="5" fill="#FFFFFF"/>
+  </g>
+  <g>
+    <circle cx="320" cy="160" r="14" fill="#14B8AE"/>
+    <circle cx="320" cy="160" r="5" fill="#FFFFFF"/>
+  </g>
+  <g>
+    <circle cx="260" cy="300" r="14" fill="#FFC94A"/>
+    <circle cx="260" cy="300" r="5" fill="#FFFFFF"/>
+  </g>
+  <g>
+    <circle cx="130" cy="290" r="14" fill="#7C5CFF"/>
+    <circle cx="130" cy="290" r="5" fill="#FFFFFF"/>
+  </g>
+  <g>
+    <circle cx="380" cy="230" r="11" fill="#FF3D6E"/>
+    <circle cx="380" cy="230" r="4" fill="#FFFFFF"/>
+  </g>
+
+  <!-- small paper plane along the path -->
+  <g transform="translate(230,90) rotate(35)">
+    <path d="M0 0 L26 6 L2 14 L4 22 Z" fill="#1B2540" opacity="0.55"/>
+  </g>
+</svg>
