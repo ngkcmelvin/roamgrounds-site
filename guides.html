@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Roamgrounds — Guides: Visas, Insurance, Tax & eSIM for Asia-Pacific</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<style>
+  .guide-card .cat-row{ display:flex; align-items:center; justify-content:space-between; }
+  .guide-card p.summary{ font-size:0.9rem; color:var(--ink-soft); margin-top:12px; }
+  .guide-card .tags{ margin-top:14px; display:flex; flex-wrap:wrap; gap:6px; }
+  .guide-card .tags span{ font-family:'IBM Plex Mono', monospace; font-size:0.68rem; color:var(--ink-faint); background:var(--bg); border:1px solid var(--line); padding:3px 9px; border-radius:100px; }
+  .empty-state{ text-align:center; padding:60px 20px; color:var(--ink-faint); font-family:'IBM Plex Mono', monospace; font-size:0.85rem; }
+</style>
+</head>
+<body class="dot-bg">
+
+  <header class="site">
+    <div class="brand"><a href="index.html"><span class="dot"></span> Roamgrounds</a></div>
+    <nav class="site">
+      <a href="index.html#compare">Visa Compare</a>
+      <a href="guides.html" class="current">Guides</a>
+      <a href="esim.html">eSIM &amp; Connectivity</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="breadcrumb"><a href="index.html">Roamgrounds</a> / Guides</div>
+    <span class="eyebrow">12 guides · Updated July 2026</span>
+    <h1>Everything you need <em>before you land</em>.</h1>
+    <p class="lede">Visa walkthroughs, insurance basics, tax residency rules, eSIM picks, and city-by-city lifestyle notes — searchable so you only read what applies to your trip.</p>
+  </section>
+
+  <section class="counter">
+    <div class="counter-head">
+      <h2>Search the guides</h2>
+      <span id="resultCount"></span>
+    </div>
+    <div class="search-wrap">
+      <input type="text" id="searchInput" placeholder="Try “Thailand”, “insurance”, “183 day rule”, “Bali”...">
+    </div>
+    <div class="filters" id="categoryFilters">
+      <button class="active" data-cat="all">All</button>
+      <button data-cat="Visa">Visa</button>
+      <button data-cat="Insurance">Insurance</button>
+      <button data-cat="Tax">Tax</button>
+      <button data-cat="eSIM">eSIM</button>
+      <button data-cat="Lifestyle">Lifestyle</button>
+      <button data-cat="Money">Money</button>
+    </div>
+    <div class="grid" id="guideGrid"></div>
+  </section>
+
+  <footer>
+    <div class="inner">
+      <p>Roamgrounds's guides summarize public information for general orientation only — not legal, tax, or immigration advice. Always confirm current rules with an official source or licensed advisor before acting.</p>
+      <p class="mono">© 2026 Roamgrounds · Built with Claude</p>
+    </div>
+  </footer>
+
+<script src="data.js"></script>
+<script>
+let activeCat = 'all';
+
+function renderGuides(list){
+  const grid = document.getElementById('guideGrid');
+  document.getElementById('resultCount').textContent = list.length + (list.length === 1 ? ' guide' : ' guides');
+  if(list.length === 0){
+    grid.innerHTML = `<div class="empty-state" style="grid-column:1/-1;">No guides match that search — try a different keyword.</div>`;
+    return;
+  }
+  grid.innerHTML = list.map(g => `
+    <div class="card guide-card">
+      <div class="cat-row">
+        <span class="tag ${g.color}">${g.category}</span>
+        <span class="mono" style="font-size:0.75rem; color:var(--ink-faint);">${g.readTime}</span>
+      </div>
+      <h3 style="margin-top:12px; max-width:100%;">${g.title}</h3>
+      <p class="summary">${g.summary}</p>
+      <div class="tags">${g.tags.map(t => `<span>#${t.replace(/\s+/g,'-')}</span>`).join('')}</div>
+      <a class="cta" href="#" style="margin-top:16px;">Read guide →</a>
+    </div>
+  `).join('');
+}
+
+function applyFilters(){
+  const q = document.getElementById('searchInput').value.trim().toLowerCase();
+  let list = GUIDES.slice();
+  if(activeCat !== 'all') list = list.filter(g => g.category === activeCat);
+  if(q){
+    list = list.filter(g =>
+      g.title.toLowerCase().includes(q) ||
+      g.summary.toLowerCase().includes(q) ||
+      g.tags.some(t => t.toLowerCase().includes(q))
+    );
+  }
+  renderGuides(list);
+}
+
+document.getElementById('searchInput').addEventListener('input', applyFilters);
+
+document.querySelectorAll('#categoryFilters button').forEach(btn=>{
+  btn.addEventListener('click', ()=>{
+    document.querySelectorAll('#categoryFilters button').forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active');
+    activeCat = btn.dataset.cat;
+    applyFilters();
+  });
+});
+
+renderGuides(GUIDES);
+</script>
+</body>
+</html>

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Roamgrounds — Compare Asia-Pacific Long-Stay & Digital Nomad Visas</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body class="dot-bg">
+
+  <header class="site">
+    <div class="brand"><a href="index.html"><span class="dot"></span> Roamgrounds</a></div>
+    <nav class="site">
+      <a href="index.html#compare" class="current">Visa Compare</a>
+      <a href="guides.html">Guides</a>
+      <a href="esim.html">eSIM &amp; Connectivity</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <span class="eyebrow">Asia-Pacific · Updated July 2026</span>
+    <h1>Six ways to legally <em>stay and work</em><br>from Asia-Pacific — compared.</h1>
+    <p class="lede">Thailand, Malaysia, Indonesia, Japan, Vietnam and the Philippines each handle remote workers differently. This is the plain-numbers version: income thresholds, real cost, duration, and what's actually a visa versus a workaround.</p>
+
+    <div class="stat-strip">
+      <div class="stat"><div class="num">3</div><div class="label">Dedicated nomad visas in region</div></div>
+      <div class="stat"><div class="num">3</div><div class="label">Countries using visa workarounds</div></div>
+      <div class="stat"><div class="num">$0–65k</div><div class="label">Annual income range required</div></div>
+      <div class="stat"><div class="num">90d–10yr</div><div class="label">Stay duration range</div></div>
+    </div>
+  </section>
+
+  <section class="counter" id="compare">
+    <div class="counter-head">
+      <h2>The comparison</h2>
+      <span>tap a filter to sort · verify against official sources before applying</span>
+    </div>
+    <div class="filters">
+      <button class="active" data-filter="all">All 6</button>
+      <button data-filter="dedicated">Dedicated visa only</button>
+      <button data-filter="low-income">Low income requirement</button>
+      <button data-filter="long-stay">Longest stay</button>
+    </div>
+    <div class="grid" id="cardGrid"></div>
+  </section>
+
+  <section class="counter" style="margin-top:6px;">
+    <div class="promo-row">
+      <div style="max-width:640px;">
+        <span class="eyebrow-label" style="color:var(--teal);">Also sorted while you're at it</span>
+        <h3 style="margin-top:6px;">Landed your visa? You'll still need a data plan before you land.</h3>
+        <p>A short comparison of eSIM providers for Thailand, Malaysia, Indonesia, Japan, Vietnam and the Philippines.</p>
+      </div>
+      <a class="cta" href="esim.html">Compare eSIMs →</a>
+    </div>
+  </section>
+
+  <footer>
+    <div class="inner">
+      <p>Roamgrounds is an independent comparison resource. Visa rules change frequently and vary by nationality — always confirm current requirements with the relevant embassy or official immigration portal before making plans. This page may contain affiliate links to insurance and relocation partners.</p>
+      <p class="mono">© 2026 Roamgrounds · Built with Claude</p>
+    </div>
+  </footer>
+
+<script src="data.js"></script>
+<script>
+function stampClass(type){ return type === "dedicated" ? "teal" : "pink"; }
+function stampTagLabel(type){ return type === "dedicated" ? "Dedicated visa" : "Workaround route"; }
+
+function render(list){
+  const grid = document.getElementById('cardGrid');
+  grid.innerHTML = list.map(p => `
+    <div class="card">
+      <div class="sticker ${p.color}"><span>${p.stickerLabel}</span></div>
+      <div class="eyebrow-label">${p.country}</div>
+      <h3>${p.name}</h3>
+      <span class="tag ${stampClass(p.type)}">${stampTagLabel(p.type)}</span>
+      <div class="rows">
+        <div class="row"><span class="k">Income req.</span><span class="v">${p.income}</span></div>
+        <div class="row"><span class="k">Funds / deposit</span><span class="v">${p.funds}</span></div>
+        <div class="row"><span class="k">Duration</span><span class="v">${p.duration}</span></div>
+        <div class="row"><span class="k">Cost</span><span class="v">${p.cost}</span></div>
+        <div class="row"><span class="k">Tax treatment</span><span class="v">${p.tax}</span></div>
+      </div>
+      <p class="note">${p.note}</p>
+      <a class="cta" href="guides.html">Full ${p.country} guide →</a>
+    </div>
+  `).join('');
+}
+
+render(VISA_PROGRAMS);
+
+document.querySelectorAll('.filters button').forEach(btn=>{
+  btn.addEventListener('click', ()=>{
+    document.querySelectorAll('.filters button').forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active');
+    const f = btn.dataset.filter;
+    let list = VISA_PROGRAMS.slice();
+    if(f === 'dedicated') list = list.filter(p=>p.type==='dedicated');
+    if(f === 'low-income') list = list.slice().sort((a,b)=>a.sortKeys.income-b.sortKeys.income);
+    if(f === 'long-stay') list = list.slice().sort((a,b)=>b.sortKeys.longStay-a.sortKeys.longStay);
+    render(list);
+  });
+});
+</script>
+</body>
+</html>

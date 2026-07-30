@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Roamgrounds — eSIM Comparison for Asia-Pacific Travel</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body class="dot-bg">
+
+  <header class="site">
+    <div class="brand"><a href="index.html"><span class="dot"></span> Roamgrounds</a></div>
+    <nav class="site">
+      <a href="index.html#compare">Visa Compare</a>
+      <a href="guides.html">Guides</a>
+      <a href="esim.html" class="current">eSIM &amp; Connectivity</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="breadcrumb"><a href="index.html">Roamgrounds</a> / eSIM &amp; Connectivity</div>
+    <span class="eyebrow teal">Companion guide · Updated July 2026</span>
+    <h1>Your visa is sorted. <em>Your data plan</em> is next.</h1>
+    <p class="lede">A quick-reference comparison of the eSIM providers that actually work well across Thailand, Malaysia, Indonesia, Japan, Vietnam and the Philippines — for the same trip your visa page just helped you plan.</p>
+  </section>
+
+  <section class="counter" id="esim-compare">
+    <div class="counter-head">
+      <h2>The comparison</h2>
+      <span>tap a filter to sort · pricing is indicative and changes often</span>
+    </div>
+    <div class="filters">
+      <button class="active" data-filter="all">All 6</button>
+      <button data-filter="core">Best regional coverage</button>
+      <button data-filter="unlimited">Unlimited data</button>
+      <button data-filter="india">Includes India</button>
+    </div>
+    <div class="grid" id="esimGrid"></div>
+  </section>
+
+  <section class="counter">
+    <div class="callout">
+      <strong>One nuance worth knowing:</strong> most eSIM comparison pages lead with the headline commission rate, but what actually matters for repeat travelers is whether a provider's affiliate program pays a one-time fee or a recurring share on every top-up. Long-stay nomads on a visa like the ones on our <a href="index.html#compare">visa comparison page</a> tend to top up data repeatedly — which is exactly where a recurring-commission provider earns more over the life of that reader.
+    </div>
+  </section>
+
+  <footer>
+    <div class="inner">
+      <p>Roamgrounds is an independent comparison resource. eSIM pricing, data allowances, and coverage change frequently — always confirm current plans on the provider's own site before buying. This page contains affiliate links; we may earn a commission at no extra cost to you.</p>
+      <p class="mono">© 2026 Roamgrounds · Built with Claude</p>
+    </div>
+  </footer>
+
+<script src="data.js"></script>
+<script>
+function render(list){
+  const grid = document.getElementById('esimGrid');
+  grid.innerHTML = list.map(p => `
+    <div class="card">
+      <div class="sticker ${p.color}"><span>${p.stickerLabel}</span></div>
+      <div class="eyebrow-label">${p.provider}</div>
+      <h3>${p.name}</h3>
+      <span class="tag ${p.type === 'core' ? 'teal' : 'grape'}">${p.type === 'core' ? 'Regional pick' : 'Specialist pick'}</span>
+      <div class="rows">
+        <div class="row"><span class="k">Coverage</span><span class="v">${p.coverage}</span></div>
+        <div class="row"><span class="k">Data</span><span class="v">${p.data}</span></div>
+        <div class="row"><span class="k">Price</span><span class="v">${p.price}</span></div>
+        <div class="row"><span class="k">Tethering</span><span class="v">${p.tethering}</span></div>
+      </div>
+      <p class="note">${p.note}</p>
+      <a class="cta" href="guides.html">Full ${p.provider} review →</a>
+    </div>
+  `).join('');
+}
+
+render(ESIM_PROVIDERS);
+
+document.querySelectorAll('.filters button').forEach(btn=>{
+  btn.addEventListener('click', ()=>{
+    document.querySelectorAll('.filters button').forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active');
+    const f = btn.dataset.filter;
+    let list = ESIM_PROVIDERS.slice();
+    if(f === 'core') list = list.filter(p=>p.type==='core');
+    if(f === 'unlimited') list = list.filter(p=>p.sortKeys.unlimited);
+    if(f === 'india') list = list.filter(p=>p.sortKeys.india);
+    render(list);
+  });
+});
+</script>
+</body>
+</html>
