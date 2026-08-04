@@ -79,8 +79,8 @@
     </div>
   </footer>
 
-<script src="data.js"></script>
 <script>
+let ESIM_PROVIDERS = [];
 function render(list){
   const grid = document.getElementById('esimGrid');
   grid.innerHTML = list.map(p => `
@@ -102,7 +102,16 @@ function render(list){
   `).join('');
 }
 
-render(ESIM_PROVIDERS);
+fetch('content/esim.json')
+  .then(r => r.json())
+  .then(data => {
+    ESIM_PROVIDERS = data.providers;
+    render(ESIM_PROVIDERS);
+  })
+  .catch(err => {
+    document.getElementById('esimGrid').innerHTML = '<p style="color:var(--ink-faint);">Could not load eSIM data — check that content/esim.json is uploaded.</p>';
+    console.error(err);
+  });
 
 document.querySelectorAll('.filters button').forEach(btn=>{
   btn.addEventListener('click', ()=>{
