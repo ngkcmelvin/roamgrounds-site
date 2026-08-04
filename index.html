@@ -108,8 +108,8 @@
     </div>
   </footer>
 
-<script src="data.js"></script>
 <script>
+let VISA_PROGRAMS = [];
 function stampClass(type){ return type === "dedicated" ? "teal" : "pink"; }
 function stampTagLabel(type){ return type === "dedicated" ? "Dedicated visa" : "Workaround route"; }
 
@@ -134,7 +134,16 @@ function render(list){
   `).join('');
 }
 
-render(VISA_PROGRAMS);
+fetch('content/visas.json')
+  .then(r => r.json())
+  .then(data => {
+    VISA_PROGRAMS = data.programs;
+    render(VISA_PROGRAMS);
+  })
+  .catch(err => {
+    document.getElementById('cardGrid').innerHTML = '<p style="color:var(--ink-faint);">Could not load visa data — check that content/visas.json is uploaded.</p>';
+    console.error(err);
+  });
 
 document.querySelectorAll('.filters button').forEach(btn=>{
   btn.addEventListener('click', ()=>{
