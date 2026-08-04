@@ -86,8 +86,8 @@
     </div>
   </footer>
 
-<script src="data.js"></script>
 <script>
+let GUIDES = [];
 let activeCat = 'all';
 
 function renderGuides(list){
@@ -136,7 +136,16 @@ document.querySelectorAll('#categoryFilters button').forEach(btn=>{
   });
 });
 
-renderGuides(GUIDES);
+fetch('content/guides.json')
+  .then(r => r.json())
+  .then(data => {
+    GUIDES = data.guides;
+    renderGuides(GUIDES);
+  })
+  .catch(err => {
+    document.getElementById('guideGrid').innerHTML = '<p style="color:var(--ink-faint);">Could not load guides — check that content/guides.json is uploaded.</p>';
+    console.error(err);
+  });
 </script>
 </body>
 </html>
