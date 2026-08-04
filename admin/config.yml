@@ -1,0 +1,90 @@
+backend:
+  name: git-gateway
+  branch: main
+  identity_url: https://roamgrounds-cms.netlify.app/.netlify/identity
+  gateway_url: https://roamgrounds-cms.netlify.app/.netlify/git-gateway
+
+media_folder: "content/uploads"
+public_folder: "/content/uploads"
+
+collections:
+  - name: "guides"
+    label: "Guides"
+    files:
+      - file: "content/guides.json"
+        label: "All Guides"
+        name: "guides"
+        fields:
+          - label: "Guides"
+            name: "guides"
+            widget: "list"
+            summary: "{{title}}"
+            fields:
+              - {label: "Title", name: "title", widget: "string"}
+              - {label: "Category", name: "category", widget: "select", options: ["Visa","Insurance","Tax","eSIM","Lifestyle","Money"]}
+              - {label: "Badge Color", name: "color", widget: "select", options: ["coral","teal","sun","grape","pink"]}
+              - {label: "Read Time", name: "readTime", widget: "string", hint: "e.g. 8 min"}
+              - {label: "Tags", name: "tags", widget: "list"}
+              - {label: "Summary", name: "summary", widget: "text"}
+
+  - name: "visas"
+    label: "Visa Programs"
+    files:
+      - file: "content/visas.json"
+        label: "All Visa Programs"
+        name: "visas"
+        fields:
+          - label: "Programs"
+            name: "programs"
+            widget: "list"
+            summary: "{{country}} — {{name}}"
+            fields:
+              - {label: "Country", name: "country", widget: "string"}
+              - {label: "Program Name", name: "name", widget: "string"}
+              - {label: "Badge Color", name: "color", widget: "select", options: ["coral","teal","sun","grape","pink"]}
+              - {label: "Sticker Label", name: "stickerLabel", widget: "string", hint: "Short text on the badge, e.g. 5 YR VALID"}
+              - {label: "Type", name: "type", widget: "select", options: ["dedicated","workaround"]}
+              - {label: "Income Requirement", name: "income", widget: "string"}
+              - {label: "Funds / Deposit", name: "funds", widget: "string"}
+              - {label: "Duration", name: "duration", widget: "string"}
+              - {label: "Cost", name: "cost", widget: "string"}
+              - {label: "Tax Treatment", name: "tax", widget: "string"}
+              - {label: "Note", name: "note", widget: "text"}
+              - label: "Sort Values"
+                name: "sortKeys"
+                widget: "object"
+                hint: "Used only for the 'longest stay' / 'lowest income' filter buttons — not shown to visitors"
+                fields:
+                  - {label: "Duration in years (e.g. 0.25 for 90 days)", name: "longStay", widget: "number", value_type: "float"}
+                  - {label: "Annual income figure", name: "income", widget: "number"}
+
+  - name: "esim"
+    label: "eSIM Providers"
+    files:
+      - file: "content/esim.json"
+        label: "All eSIM Providers"
+        name: "esim"
+        fields:
+          - label: "Providers"
+            name: "providers"
+            widget: "list"
+            summary: "{{provider}} — {{name}}"
+            fields:
+              - {label: "Provider", name: "provider", widget: "string"}
+              - {label: "Plan Name", name: "name", widget: "string"}
+              - {label: "Badge Color", name: "color", widget: "select", options: ["coral","teal","sun","grape","pink"]}
+              - {label: "Sticker Label", name: "stickerLabel", widget: "string"}
+              - {label: "Type", name: "type", widget: "select", options: ["core","specialist"]}
+              - {label: "Coverage", name: "coverage", widget: "string"}
+              - {label: "Data", name: "data", widget: "string"}
+              - {label: "Price", name: "price", widget: "string"}
+              - {label: "Tethering", name: "tethering", widget: "string"}
+              - {label: "Flags (emoji)", name: "flags", widget: "string", hint: "Paste flag emojis, e.g. 🇹🇭🇲🇾🇮🇩"}
+              - {label: "Note", name: "note", widget: "text"}
+              - label: "Sort Values"
+                name: "sortKeys"
+                widget: "object"
+                hint: "Used only for the filter buttons — not shown to visitors"
+                fields:
+                  - {label: "Includes India?", name: "india", widget: "boolean", default: false}
+                  - {label: "Unlimited data?", name: "unlimited", widget: "boolean", default: false}
