@@ -4,7 +4,7 @@ backend:
   branch: main
   base_url: https://api.netlify.com
   auth_endpoint: auth
-  site_id: roamgrounds-cms.netlify.app
+  site_domain: roamgrounds-cms.netlify.app
 
 media_folder: "content/uploads"
 public_folder: "/content/uploads"
