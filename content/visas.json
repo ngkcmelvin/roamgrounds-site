@@ -1,106 +1,88 @@
 {
   "programs": [
     {
-      "color": "coral",
-      "income": "No monthly income req.",
-      "name": "Destination Thailand Visa (DTV)",
-      "tax": "Territorial — foreign income generally untaxed if remitted rules met",
-      "cost": "~$220 application fee",
-      "funds": "฿500,000 (~US$14,000) balance",
-      "sortKeys": {
-        "longStay": 5,
-        "income": 14000
-      },
-      "note": "Renewal terms not yet fully established since 2024 launch — most flexible entry point in the region right now.",
-      "duration": "5 years, 180 days per entry",
       "country": "Thailand",
+      "name": "Destination Thailand Visa (DTV)",
+      "color": "coral",
       "stickerLabel": "5 YR VALID",
-      "type": "dedicated"
-    },
-    {
-      "color": "teal",
-      "income": "$24,000/yr (tech) · $60,000/yr (non-tech)",
-      "name": "DE Rantau Nomad Pass",
-      "tax": "Non-resident territorial system for short stays",
-      "cost": "~MYR 1,000 (~$215)",
-      "funds": "No separate bank deposit",
-      "sortKeys": {
-        "longStay": 1,
-        "income": 24000
-      },
-      "note": "Most predictable paperwork in the region — but 'tech work' is interpreted narrowly, generalist freelancers sometimes declined.",
-      "duration": "12 months, renewable",
-      "country": "Malaysia",
-      "stickerLabel": "12 MO RENEW",
-      "type": "dedicated"
-    },
-    {
-      "color": "sun",
+      "type": "dedicated",
       "income": "No monthly income req.",
-      "name": "Second Home Visa (Bali route)",
-      "tax": "Complex — consult a local tax advisor before staying past 183 days",
-      "cost": "Deposit-based, agent fees vary",
-      "funds": "$130,000 bank deposit",
-      "sortKeys": {
-        "longStay": 10,
-        "income": 0
-      },
-      "note": "High capital bar but by far the longest runway. A separate lower-threshold E33G remote-worker route ($60k/yr income) also exists but rollout has been inconsistent.",
-      "duration": "5–10 years",
+      "funds": "฿500,000 (~US$15,500) — must be 'seasoned' 3+ months",
+      "duration": "5 years, 180 days per entry, extendable once to ~360 days continuous",
+      "cost": "10,000 THB (~$275) application fee + 1,900 THB per extension",
+      "tax": "Territorial — foreign income generally untaxed if remitted rules met",
+      "note": "Renewal/extension terms are now confirmed and stable. But enforcement has tightened since 2024: funds must sit in your account 3+ months before applying, language schools were excluded from the soft-power category, and rejection rates have climbed through 2025-2026 — still the most flexible entry point in the region, just less forgiving on paperwork than at launch.",
+      "sortKeys": { "longStay": 5, "income": 15500 }
+    },
+    {
+      "country": "Malaysia",
+      "name": "DE Rantau Nomad Pass",
+      "color": "teal",
+      "stickerLabel": "12 MO RENEW",
+      "type": "dedicated",
+      "income": "$24,000/yr (tech) · $60,000/yr (non-tech)",
+      "funds": "No separate bank deposit",
+      "duration": "12 months, renewable once (24 months total)",
+      "cost": "~MYR 1,000 (~$220)",
+      "tax": "0% tax on foreign-sourced income — carve-out currently runs 2022–2026, confirm current status before long-term planning",
+      "note": "Most predictable paperwork in the region — but 'tech work' is interpreted narrowly, generalist freelancers sometimes declined. Worth double-checking whether the tax exemption has been renewed past 2026 before committing multi-year plans here.",
+      "sortKeys": { "longStay": 2, "income": 24000 }
+    },
+    {
       "country": "Indonesia",
+      "name": "Second Home Visa (Bali route)",
+      "color": "sun",
       "stickerLabel": "5–10 YR",
-      "type": "dedicated"
+      "type": "dedicated",
+      "income": "No monthly income req.",
+      "funds": "$130,000 bank deposit (or $1M property)",
+      "duration": "5–10 years",
+      "cost": "Deposit-based, agent fees vary",
+      "tax": "Complex — consult a local tax advisor before staying past 183 days",
+      "note": "High capital bar but by far the longest runway. The lower-threshold E33G remote-worker route ($60k/yr income, 1-year permit, now confirmed renewable online indefinitely) is a well-established alternative. Important: Bali immigration launched a 100-officer enforcement task force in April 2026 actively patrolling for people working on tourist visas — hundreds have been deported in 2025-2026. Don't work remotely from Indonesia without a proper permit.",
+      "sortKeys": { "longStay": 10, "income": 0 }
     },
     {
-      "color": "grape",
-      "income": "¥10,000,000/yr (~$65,000)",
-      "name": "Digital Nomad Visa",
-      "tax": "Short-stay, generally outside local tax residency",
-      "cost": "Standard visa fee",
-      "funds": "Private health insurance required",
-      "sortKeys": {
-        "longStay": 0.5,
-        "income": 65000
-      },
-      "note": "Best for a high-earning short cultural stint, not a long-term base — you'll need to leave and can't simply extend.",
-      "duration": "6 months, not renewable",
       "country": "Japan",
+      "name": "Digital Nomad Visa",
+      "color": "grape",
       "stickerLabel": "6 MO ONLY",
-      "type": "dedicated"
+      "type": "dedicated",
+      "income": "¥10,000,000/yr (~$68,000)",
+      "funds": "Private health insurance required",
+      "duration": "6 months, not renewable — but you can reapply after a 6-month cooling-off period outside Japan",
+      "cost": "Standard visa fee",
+      "tax": "Short-stay, generally outside local tax residency",
+      "note": "Best for a high-earning short cultural stint, not a long-term base — you'll need to leave and wait 6 months before reapplying, so it works better as a recurring 6-months-on/6-months-off pattern than most people expect.",
+      "sortKeys": { "longStay": 0.5, "income": 68000 }
     },
     {
-      "color": "pink",
-      "income": "None specified",
-      "name": "90-day e-visa (workaround)",
-      "tax": "Undefined for remote workers — legal gray area",
-      "cost": "~$25–50 e-visa fee",
-      "funds": "None specified",
-      "sortKeys": {
-        "longStay": 0.25,
-        "income": 0
-      },
-      "note": "No dedicated nomad visa exists. Widely used anyway, but you're technically on a tourist visa while working — treat as short-term only.",
-      "duration": "90 days, limited extension",
       "country": "Vietnam",
+      "name": "90-day e-visa (workaround)",
+      "color": "pink",
       "stickerLabel": "GRAY ZONE",
-      "type": "workaround"
+      "type": "workaround",
+      "income": "None specified",
+      "funds": "None specified",
+      "duration": "90 days, limited extension",
+      "cost": "~$25–50 e-visa fee",
+      "tax": "Undefined for remote workers — legal gray area",
+      "note": "No dedicated nomad visa exists, and none has materialized despite a proposed 10-year Golden Visa still sitting unenacted as of mid-2026. Widely used anyway, but you're technically on a tourist visa while working — treat as short-term only.",
+      "sortKeys": { "longStay": 0.25, "income": 0 }
     },
     {
-      "color": "pink",
-      "income": "Varies by route",
-      "name": "Tourist extension / SRRV route",
-      "tax": "Undefined for tourist-route remote work",
-      "cost": "Extension fees vary",
-      "funds": "SRRV requires a retirement-linked deposit",
-      "sortKeys": {
-        "longStay": 0.25,
-        "income": 0
-      },
-      "note": "A dedicated digital nomad visa is reportedly in development — worth checking current status before committing long-term plans here.",
-      "duration": "Extendable tourist visa, capped renewals",
       "country": "Philippines",
-      "stickerLabel": "IN PROGRESS",
-      "type": "workaround"
+      "name": "Digital Nomad Visa (EO 86)",
+      "color": "pink",
+      "stickerLabel": "NOW LIVE",
+      "type": "dedicated",
+      "income": "$24,000/yr (~$2,000/month)",
+      "funds": "No separate deposit — income proof required",
+      "duration": "1 year, renewable once (up to 2 years total)",
+      "cost": "~$200–300 total processing fee",
+      "tax": "Non-tax resident — foreign-sourced income not taxed locally",
+      "note": "Launched via Executive Order 86 in 2025 and now fully operational — no longer 'in development.' One real catch: it requires your home country to offer Filipinos a reciprocal digital nomad visa, and no official list of qualifying countries has been published yet, so confirm eligibility directly with your nearest Philippine embassy before assuming you qualify.",
+      "sortKeys": { "longStay": 2, "income": 24000 }
     }
   ]
 }
