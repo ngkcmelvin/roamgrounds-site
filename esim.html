@@ -26,6 +26,10 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icons/7.2.3/css/flag-icons.min.css">
+<style>
+  .flag-row .fi { border-radius: 3px; margin-right: 5px; width: 1.4em; height: 1.4em; background-size: cover; vertical-align: middle; }
+</style>
 </head>
 <body class="dot-bg">
 
@@ -81,6 +85,17 @@
 
 <script>
 let ESIM_PROVIDERS = [];
+
+function renderFlags(p){
+  if (p.flagCodes && p.flagCodes.length) {
+    return `<div class="flag-row" style="margin-top:6px;">${p.flagCodes.map(c => `<span class="fi fi-${c}"></span>`).join('')}</div>`;
+  }
+  if (p.flags) {
+    return `<div style="font-size:1.3rem; margin-top:6px; letter-spacing:2px;">${p.flags}</div>`;
+  }
+  return '';
+}
+
 function render(list){
   const grid = document.getElementById('esimGrid');
   grid.innerHTML = list.map(p => `
@@ -88,7 +103,7 @@ function render(list){
       <div class="sticker ${p.color}"><span>${p.stickerLabel}</span></div>
       <div class="eyebrow-label">${p.provider}</div>
       <h3>${p.name}</h3>
-      <div style="font-size:1.3rem; margin-top:6px; letter-spacing:2px;">${p.flags}</div>
+      ${renderFlags(p)}
       <span class="tag ${p.type === 'core' ? 'teal' : 'grape'}">${p.type === 'core' ? 'Regional pick' : 'Specialist pick'}</span>
       <div class="rows">
         <div class="row"><span class="k">Coverage</span><span class="v">${p.coverage}</span></div>
