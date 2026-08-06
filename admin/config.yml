@@ -107,6 +107,8 @@ collections:
               - {label: "Tethering", name: "tethering", widget: "string"}
               - {label: "Flags (emoji)", name: "flags", widget: "string", hint: "Paste flag emojis, e.g. 🇹🇭🇲🇾🇮🇩"}
               - {label: "Note", name: "note", widget: "text"}
+              - {label: "Affiliate Link", name: "affiliateUrl", widget: "string", required: false, hint: "Paste your Impact (or other network) tracking link here. Leave blank until you're approved for this provider — the button just won't show up on the site."}
+              - {label: "Button Text", name: "ctaLabel", widget: "string", required: false, default: "Get this eSIM", hint: "Optional — customize the CTA, e.g. 'Get 10% off' or 'Claim free trial'"}
               - label: "Sort Values"
                 name: "sortKeys"
                 widget: "object"
