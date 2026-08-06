@@ -1,10 +1,8 @@
 backend:
-  name: github
-  repo: ngkcmelvin/roamgrounds-site
+  name: git-gateway
   branch: main
-  base_url: https://api.netlify.com
-  auth_endpoint: auth
-  site_domain: roamgrounds-cms-auth.netlify.app
+  identity_url: https://roamgrounds-cms.netlify.app/.netlify/identity
+  gateway_url: https://roamgrounds-cms.netlify.app/.netlify/git/github
 
 media_folder: "content/uploads"
 public_folder: "/content/uploads"
