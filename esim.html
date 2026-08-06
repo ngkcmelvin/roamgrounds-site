@@ -97,7 +97,12 @@ function render(list){
         <div class="row"><span class="k">Tethering</span><span class="v">${p.tethering}</span></div>
       </div>
       <p class="note">${p.note}</p>
-      <a class="cta" href="guides.html">Full ${p.provider} review →</a>
+      ${p.affiliateUrl ? `
+        <a class="cta" href="${p.affiliateUrl}" target="_blank" rel="sponsored noopener">${p.ctaLabel || 'Get this eSIM'} →</a>
+        <a href="guides.html" style="display:block; margin-top:8px; font-size:0.78rem; color:var(--ink-faint);">Full ${p.provider} review →</a>
+      ` : `
+        <a class="cta" href="guides.html">Full ${p.provider} review →</a>
+      `}
     </div>
   `).join('');
 }
