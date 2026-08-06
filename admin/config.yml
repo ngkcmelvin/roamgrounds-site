@@ -105,7 +105,8 @@ collections:
               - {label: "Data", name: "data", widget: "string"}
               - {label: "Price", name: "price", widget: "string"}
               - {label: "Tethering", name: "tethering", widget: "string"}
-              - {label: "Flags (emoji)", name: "flags", widget: "string", hint: "Paste flag emojis, e.g. 🇹🇭🇲🇾🇮🇩"}
+              - {label: "Flag Country Codes (recommended)", name: "flagCodes", widget: "list", required: false, hint: "2-letter lowercase codes only, e.g. th, my, id, jp, vn, ph, in, kr, kh. Renders as real flag icons that work on every device — use this instead of typing emoji flags, which break on Windows."}
+              - {label: "Flags (emoji fallback — non-country icons only, e.g. 🌍✈️🚢)", name: "flags", widget: "string", required: false, hint: "Only used if Flag Country Codes above is empty. Fine for symbolic icons like globe/plane/ship, but don't use emoji flags here — they break on Windows."}
               - {label: "Note", name: "note", widget: "text"}
               - {label: "Affiliate Link", name: "affiliateUrl", widget: "string", required: false, hint: "Paste your Impact (or other network) tracking link here. Leave blank until you're approved for this provider — the button just won't show up on the site."}
               - {label: "Button Text", name: "ctaLabel", widget: "string", required: false, default: "Get this eSIM", hint: "Optional — customize the CTA, e.g. 'Get 10% off' or 'Claim free trial'"}
