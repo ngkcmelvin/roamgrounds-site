@@ -49,7 +49,7 @@
     <div class="hero-inner">
       <div class="hero-text">
         <div class="breadcrumb"><a href="index.html">Roamgrounds</a> / Guides</div>
-        <span class="eyebrow">12 guides · Updated August 2026</span>
+        <span class="eyebrow">12 guides · Updated July 2026</span>
         <h1>Everything you need <em>before you land</em>.</h1>
         <p class="lede">Visa walkthroughs, insurance basics, tax residency rules, eSIM picks, and city-by-city lifestyle notes — searchable so you only read what applies to your trip.</p>
       </div>
@@ -106,7 +106,7 @@ function renderGuides(list){
       <h3 style="margin-top:12px; max-width:100%;">${g.title}</h3>
       <p class="summary">${g.summary}</p>
       <div class="tags">${g.tags.map(t => `<span>#${t.replace(/\s+/g,'-')}</span>`).join('')}</div>
-      <a class="cta" href="#" style="margin-top:16px;">Read guide →</a>
+      ${g.slug && g.body ? `<a class="cta" href="guide.html?slug=${g.slug}" style="margin-top:16px;">Read guide →</a>` : `<span class="mono" style="display:block; margin-top:16px; font-size:0.75rem; color:var(--ink-faint);">Coming soon</span>`}
     </div>
   `).join('');
 }
