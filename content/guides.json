@@ -12,7 +12,9 @@
         "southeast asia",
         "bank balance"
       ],
-      "summary": "Step-by-step on the ฿500,000 balance requirement, the online application, 180-day entry stamps, and what changed since the 2024 launch."
+      "summary": "Step-by-step on the ฿500,000 balance requirement, the online application, 180-day entry stamps, and what changed since the 2024 launch.",
+      "slug": "thailand-dtv",
+      "body": "## What the DTV actually is?\n\nThe Destination Thailand Visa (DTV) launched in 2024 is Thailand's answer to the digital nomad visa trend — but it is structured differently from most. Instead of a straightforward \"prove your income, get a visa\" system, the DTV is built around **eligible activities**: remote work, \"soft power\" pursuits (Muay Thai training, Thai cooking classes, cultural courses), medical treatment, or accompanying a Thai spouse. Remote workers apply under the work category, and it's by far the most popular route.\n\nIt's a 5-year multiple-entry visa, however this trips people up as it doesn't grant 5 years of continuous stay. Each entry gives you 180 days, and you can extend once for an additional 180 days from inside Thailand, giving you up to roughly 360 days per stay before you need to exit and re-enter.\n\n## Who actually qualifies?\n\nYou need to show one of the below:\n\n- **Remote employment** with a company outside Thailand, or\n- **Freelance/self-employed work** for clients outside Thailand, or\n- A qualifying \"soft power\" activity (Muay Thai gyms, culinary schools, and similar Thailand-based programs)\n\nOne real shift since the 2024 launch: **language schools were quietly excluded** from the soft-power category after a wave of applicants were using Thai-language study as a workaround route. If you're applying through an activity-based category, confirm your specific program is still recognized before paying any fees.\n\nThere's no fixed minimum income requirement stated in the rules but you do need to demonstrate the financial requirement below, and immigration officers do look at your overall application (employment letter, client contracts, invoices) for plausibility.\n\n## The money requirement  (The part people get wrong)\n\nYou need to show a bank balance of **฿500,000 (roughly US$15,500 at current exchange rates)**.\n\nHere's the part that's changed since launch: this figure isn't just a snapshot balance you can show on application day. Immigration has tightened enforcement, and the funds generally need to be **\"seasoned\"** ; i.e. sitting in your account for a meaningful period (commonly cited as at least 3 months) before you apply, rather than deposited the week before. A balance that spikes right before application, then drops right after, is a red flag reviewers are actively watching for in 2025–2026 approvals.\n\n## Costs\n\n- **Application fee**: THB 10,000 (roughly US$275–290 depending on the exchange rate)\n- **Extension fee** (for the additional 180 days): THB 1,900, this used to be an open question at launch; it's now a confirmed, standard fee\n- Agent fees on top, if you use one, vary widely — see the note on agents below\n\n## Application\n\nApplications go through Thailand's official e-visa portal. You'll generally need:\n\n1. A valid passport with at least 6 months validity\n2. Proof of your qualifying activity (employment letter, freelance contracts, or soft-power program enrollment)\n3. Bank statements showing the seasoned ฿500,000 balance\n4. A passport photo and the completed online application\n\nProcessing times vary, but budget several weeks rather than days, especially during high-application periods.\n\n## Extending your stay\n\nOnce you're in Thailand on your first 180-day entry, you can apply for the one-time 180-day extension at a local immigration office before your current permission expires. This is where the THB 1,900 fee applies. After that combined ~360-day window, you'll need to exit and re-enter on the same visa to reset the clock — the visa itself remains valid for the full 5 years, so re-entries don't require a fresh application, just a border exit/entry.\n\n## Tax treatment\n\nThailand runs on a territorial tax system, which in practice means foreign-sourced income is generally not taxed **if the remittance rules are met**, broadly, income not remitted into Thailand within the same tax year it was earned has historically avoided taxation, though Thailand's rules on remitted foreign income have been evolving. This is genuinely one of the more complex areas of Thai tax law for foreigners, and the details matter enough that this isn't something to wing — a consultation with a Thailand-based tax advisor before you cross the 183-day residency threshold is worth the cost.\n\n## Why rejections have climbed\n\nAnecdotally and by immigration officer scrutiny, DTV rejection rates have risen through 2025 into 2026 compared to the visa's first year. The main patterns behind rejected applications:\n\n- Bank balances that don't show the seasoning pattern above\n- Weak or generic proof of remote employment (a one-line letter with no supporting contract or invoice history)\n- Applications through since-excluded soft-power categories, like language schools\n- Inconsistent personal details between passport, bank documents, and application form\n\nNone of this makes the DTV hard to get if your paperwork is genuinely in order — it just means the \"just throw together some documents\" approach that worked in 2024 doesn't hold up as well now.\n\n## When a visa agent is worth it\n\nFor a first-time DTV application with clean documentation, doing it yourself is entirely realistic. An agent tends to earn their fee when your situation is non-standard — irregular freelance income across multiple clients, a soft-power category application, or if you've already had one rejection and need to understand exactly what went wrong before reapplying.\n\n## The bottom line\n\nThe DTV remains the most flexible long-stay option in the region for remote workers — no fixed monthly income requirement, a genuinely long visa validity window, and a well-documented application path. Just budget more time for document preparation than the visa's early adopters needed, and treat the ฿500,000 seasoning requirement as non-negotiable rather than a formality.\n\n*This guide summarizes public information for general orientation only — not legal or immigration advice. Requirements change; always confirm current rules with Thailand's official immigration channels or a licensed visa consultant before applying.*"
     },
     {
       "title": "Malaysia DE Rantau: is your work 'tech' enough to qualify?",
@@ -26,7 +28,8 @@
         "tech",
         "income"
       ],
-      "summary": "How immigration actually interprets the tech vs non-tech income tiers, real rejection patterns for generalist freelancers, and how to frame your application."
+      "summary": "How immigration actually interprets the tech vs non-tech income tiers, real rejection patterns for generalist freelancers, and how to frame your application.",
+      "slug": "malaysia-de"
     },
     {
       "title": "Indonesia Second Home Visa vs the E33G route: which one fits Bali plans",
@@ -40,7 +43,8 @@
         "e33g",
         "visa"
       ],
-      "summary": "Comparing the $130,000 deposit route against the lower-threshold income-based route, and why rollout consistency matters before you commit capital."
+      "summary": "Comparing the $130,000 deposit route against the lower-threshold income-based route, and why rollout consistency matters before you commit capital.",
+      "slug": "Indonesia-secondhome"
     },
     {
       "title": "Japan's 6-month Digital Nomad Visa: worth it for a single season",
@@ -53,7 +57,8 @@
         "visa",
         "income"
       ],
-      "summary": "Who this actually suits, the ¥10M income bar, insurance requirements, and why it's a poor fit as a long-term base."
+      "summary": "Who this actually suits, the ¥10M income bar, insurance requirements, and why it's a poor fit as a long-term base.",
+      "slug": "Japan-digitalnomad"
     },
     {
       "title": "Vietnam and the Philippines: working the tourist-visa gray zone safely",
@@ -68,7 +73,8 @@
         "gray zone",
         "visa"
       ],
-      "summary": "What 'gray zone' actually means in practice, border-run patterns people use, and the upcoming Philippines nomad visa to watch for."
+      "summary": "What 'gray zone' actually means in practice, border-run patterns people use, and the upcoming Philippines nomad visa to watch for.",
+      "slug": "Vietnam-TouristVisa"
     },
     {
       "title": "Choosing nomad health insurance: what actually matters beyond price",
@@ -82,7 +88,8 @@
         "health",
         "money"
       ],
-      "summary": "Evacuation coverage, pre-existing condition handling, and claim speed — the three things that separate a good nomad policy from a cheap one."
+      "summary": "Evacuation coverage, pre-existing condition handling, and claim speed — the three things that separate a good nomad policy from a cheap one.",
+      "slug": "Nomadhealth"
     },
     {
       "title": "The 183-day rule, explained without the jargon",
@@ -95,7 +102,8 @@
         "183 day rule",
         "money"
       ],
-      "summary": "How tax residency actually gets triggered across Thailand, Malaysia, and Indonesia, and why 'territorial tax system' doesn't mean tax-free."
+      "summary": "How tax residency actually gets triggered across Thailand, Malaysia, and Indonesia, and why 'territorial tax system' doesn't mean tax-free.",
+      "slug": "183day"
     },
     {
       "title": "How to actually choose an eSIM plan (not just the cheapest one)",
@@ -109,7 +117,8 @@
         "data",
         "connectivity"
       ],
-      "summary": "Fixed vs unlimited, tethering restrictions, and why the provider with the lowest headline price isn't always the cheapest for your actual trip."
+      "summary": "Fixed vs unlimited, tethering restrictions, and why the provider with the lowest headline price isn't always the cheapest for your actual trip.",
+      "slug": "esimplan"
     },
     {
       "title": "Best cities for a first year as a nomad in Southeast Asia",
@@ -123,7 +132,8 @@
         "lifestyle",
         "cities"
       ],
-      "summary": "Cost of living, internet reliability, and community density compared across the four cities most first-timers end up choosing between."
+      "summary": "Cost of living, internet reliability, and community density compared across the four cities most first-timers end up choosing between.",
+      "slug": "bestcities"
     },
     {
       "title": "Multi-currency cards and banking setup before you leave",
@@ -137,7 +147,8 @@
         "cards",
         "remittance"
       ],
-      "summary": "Setting up the account stack most long-term nomads actually use, and the fee traps that quietly cost more than a bad flight booking."
+      "summary": "Setting up the account stack most long-term nomads actually use, and the fee traps that quietly cost more than a bad flight booking.",
+      "slug": "multicurrency"
     },
     {
       "title": "Visa agents in Thailand and Indonesia: when they're worth the fee",
@@ -150,7 +161,8 @@
         "indonesia",
         "fees"
       ],
-      "summary": "What a legitimate agent actually does for the DTV and Second Home Visa processes, and the red flags that mean you should walk away."
+      "summary": "What a legitimate agent actually does for the DTV and Second Home Visa processes, and the red flags that mean you should walk away.",
+      "slug": "visaagents"
     },
     {
       "title": "China and India: the two exceptions to every 'best eSIM for Asia' list",
@@ -164,7 +176,8 @@
         "vpn",
         "connectivity"
       ],
-      "summary": "Why China needs a completely different setup and why India gets quietly excluded from most 'Asia regional' eSIM plans."
+      "summary": "Why China needs a completely different setup and why India gets quietly excluded from most 'Asia regional' eSIM plans.",
+      "slug": "china"
     }
   ]
 }
