@@ -51,6 +51,7 @@
   <section class="hero">
     <div class="hero-inner" style="display:block;">
       <div class="breadcrumb"><a href="index.html">Roamgrounds</a> / <a href="guides.html">Guides</a> / <span id="breadcrumbTitle"></span></div>
+      <div id="guideCategoryIcon" style="text-align:center; margin-bottom:12px;"></div>
       <div id="guideMetaRow" class="guide-meta-row"></div>
       <h1 id="guideTitle" style="text-align:center;"></h1>
     </div>
@@ -58,6 +59,7 @@
 
   <section class="counter">
     <article id="guideBody" class="guide-body"></article>
+    <div id="relatedGuides" class="guide-body" style="margin-top:48px;"></div>
   </section>
 
   <footer>
@@ -68,6 +70,15 @@
   </footer>
 
 <script>
+const CATEGORY_ICONS = {
+  "Visa": '<svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="12" cy="12" r="3"/><path d="M3 9h18"/></svg>',
+  "Insurance": '<svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2 4 5v6c0 5 3.5 8.5 8 10 4.5-1.5 8-5 8-10V5l-8-3z"/><path d="M9 12l2 2 4-4"/></svg>',
+  "Tax": '<svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="7" cy="7" r="2.5"/><circle cx="17" cy="17" r="2.5"/><path d="M18 6 6 18"/></svg>',
+  "eSIM": '<svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="4" y="4" width="10" height="16" rx="2"/><path d="M17 8v2M20 6v6M17 14v2"/></svg>',
+  "Lifestyle": '<svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 21s-7-6.5-7-11a7 7 0 0 1 14 0c0 4.5-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>',
+  "Money": '<svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2" y="6" width="20" height="13" rx="2"/><circle cx="12" cy="12.5" r="3"/><path d="M6 6V5a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v2"/></svg>'
+};
+
 function getSlug(){
   const params = new URLSearchParams(window.location.search);
   return params.get('slug');
@@ -101,11 +112,39 @@ if (!slug) {
 
       document.getElementById('breadcrumbTitle').textContent = guide.title;
       document.getElementById('guideTitle').textContent = guide.title;
+
+      document.getElementById('guideCategoryIcon').innerHTML = `
+        <span style="display:inline-flex; align-items:center; justify-content:center; width:64px; height:64px; border-radius:50%; background:var(--bg); border:1px solid var(--line); color:var(--${guide.color});">
+          ${CATEGORY_ICONS[guide.category] || ''}
+        </span>
+      `;
+
       document.getElementById('guideMetaRow').innerHTML = `
         <span class="tag ${guide.color}">${guide.category}</span>
         <span class="mono" style="font-size:0.8rem; color:var(--ink-faint);">${guide.readTime}</span>
       `;
       document.getElementById('guideBody').innerHTML = marked.parse(guide.body);
+
+      const related = data.guides
+        .filter(g => g.slug && g.body && g.slug !== guide.slug)
+        .sort((a, b) => (a.category === guide.category ? -1 : 1) - (b.category === guide.category ? -1 : 1))
+        .slice(0, 3);
+
+      if (related.length) {
+        document.getElementById('relatedGuides').innerHTML = `
+          <h2>Keep reading</h2>
+          <div class="grid" style="margin-top:16px;">
+            ${related.map(r => `
+              <div class="card">
+                <span class="tag ${r.color}">${r.category}</span>
+                <h3 style="margin-top:10px;">${r.title}</h3>
+                <p class="note">${r.summary}</p>
+                <a class="cta" href="guide.html?slug=${r.slug}" style="margin-top:12px;">Read guide →</a>
+              </div>
+            `).join('')}
+          </div>
+        `;
+      }
     })
     .catch(err => {
       showNotFound();
