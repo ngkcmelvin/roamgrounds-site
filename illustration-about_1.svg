@@ -1,0 +1,31 @@
+<svg viewBox="0 0 400 340" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="200" cy="170" r="140" fill="#FDEEE9"/>
+  <circle cx="200" cy="170" r="95" fill="none" stroke="#FA6E52" stroke-width="3" stroke-dasharray="6 8"/>
+  <circle cx="200" cy="170" r="70" fill="#FFFFFF" stroke="#F3E8E0" stroke-width="2"/>
+
+  <polygon points="200,120 214,160 200,220 186,160" fill="#17AFA0"/>
+  <polygon points="200,220 186,160 200,150" fill="#FBEAE3"/>
+  <polygon points="200,120 214,160 200,150" fill="#0F9384"/>
+  <circle cx="200" cy="170" r="9" fill="#FFC845" stroke="#FA6E52" stroke-width="2"/>
+
+  <g transform="translate(96,240)">
+    <circle cx="18" cy="18" r="18" fill="#17AFA0"/>
+    <path d="M8 14 L14 20 L28 8" stroke="#FFFFFF" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+
+  <g transform="translate(300,60)">
+    <rect x="0" y="0" width="34" height="24" rx="4" fill="#FA6E52"/>
+    <path d="M4 6 L17 15 L30 6" stroke="#FFFFFF" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+
+  <g transform="translate(60,70)">
+    <rect x="0" y="6" width="26" height="20" rx="3" fill="#FFC845"/>
+    <rect x="6" y="0" width="14" height="10" rx="2" fill="#FFC845"/>
+    <circle cx="13" cy="16" r="3" fill="#FFFFFF"/>
+  </g>
+
+  <g transform="translate(288,230)">
+    <circle cx="16" cy="16" r="16" fill="#FA6E52"/>
+    <text x="16" y="21" font-family="Poppins, sans-serif" font-size="16" font-weight="700" fill="#FFFFFF" text-anchor="middle">%</text>
+  </g>
+</svg>
