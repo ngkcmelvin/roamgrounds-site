@@ -30,6 +30,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icons/7.2.3/css/flag-icons.min.css">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -77,6 +78,34 @@
     </div>
   </section>
 
+  <section class="counter">
+    <div class="counter-head">
+      <h2>Not sure which visa fits you?</h2>
+      <span>answer 3 quick questions</span>
+    </div>
+    <div class="card" style="max-width:640px; margin:0 auto; padding:28px;">
+      <div style="margin-bottom:20px;">
+        <div style="font-weight:600; margin-bottom:10px;">What's your approximate annual remote income?</div>
+        <label style="display:block; margin-bottom:6px;"><input type="radio" name="q-income" value="low"> Under $24,000/yr</label>
+        <label style="display:block; margin-bottom:6px;"><input type="radio" name="q-income" value="mid"> $24,000–$60,000/yr</label>
+        <label style="display:block;"><input type="radio" name="q-income" value="high"> Over $60,000/yr</label>
+      </div>
+      <div style="margin-bottom:20px;">
+        <div style="font-weight:600; margin-bottom:10px;">Do you have $130,000+ you could park in a deposit?</div>
+        <label style="display:block; margin-bottom:6px;"><input type="radio" name="q-savings" value="yes"> Yes</label>
+        <label style="display:block;"><input type="radio" name="q-savings" value="no"> No</label>
+      </div>
+      <div style="margin-bottom:24px;">
+        <div style="font-weight:600; margin-bottom:10px;">How long do you want to stay?</div>
+        <label style="display:block; margin-bottom:6px;"><input type="radio" name="q-duration" value="short"> A few months</label>
+        <label style="display:block; margin-bottom:6px;"><input type="radio" name="q-duration" value="year"> About a year</label>
+        <label style="display:block;"><input type="radio" name="q-duration" value="multi"> Multiple years</label>
+      </div>
+      <button id="quizSubmit" class="cta" style="cursor:pointer; border:none;">Find my visa →</button>
+      <div id="quizResult" style="margin-top:20px;"></div>
+    </div>
+  </section>
+
   <section class="counter" id="compare">
     <div class="counter-head">
       <h2>The comparison</h2>
@@ -111,15 +140,36 @@
 
 <script>
 let VISA_PROGRAMS = [];
+
+const COUNTRY_FLAG_CODES = {
+  "Thailand": "th",
+  "Malaysia": "my",
+  "Indonesia": "id",
+  "Japan": "jp",
+  "Vietnam": "vn",
+  "Philippines": "ph"
+};
+
+const COUNTRY_GUIDE_SLUGS = {
+  "Thailand": "thailand-dtv",
+  "Malaysia": "malaysia-de-rantau",
+  "Indonesia": "indonesia-second-home-e33g",
+  "Japan": "japan-digital-nomad-visa",
+  "Vietnam": "vietnam-gray-zone",
+  "Philippines": "philippines-digital-nomad-visa"
+};
+
 function stampClass(type){ return type === "dedicated" ? "teal" : "pink"; }
 function stampTagLabel(type){ return type === "dedicated" ? "Dedicated visa" : "Workaround route"; }
 
 function render(list){
   const grid = document.getElementById('cardGrid');
   grid.innerHTML = list.map(p => `
-    <div class="card">
+    <div class="card" data-country="${p.country}">
       <div class="sticker ${p.color}"><span>${p.stickerLabel}</span></div>
-      <div class="eyebrow-label">${p.country}</div>
+      <div class="eyebrow-label">
+        ${COUNTRY_FLAG_CODES[p.country] ? `<span class="fi fi-${COUNTRY_FLAG_CODES[p.country]}" style="border-radius:3px; margin-right:6px; width:1.1em; height:1.1em; vertical-align:middle; display:inline-block; background-size:cover;"></span>` : ''}${p.country}
+      </div>
       <h3>${p.name}</h3>
       <span class="tag ${stampClass(p.type)}">${stampTagLabel(p.type)}</span>
       <div class="rows">
@@ -130,7 +180,7 @@ function render(list){
         <div class="row"><span class="k">Tax treatment</span><span class="v">${p.tax}</span></div>
       </div>
       <p class="note">${p.note}</p>
-      <a class="cta" href="guides.html">Full ${p.country} guide →</a>
+      <a class="cta" href="guide.html?slug=${COUNTRY_GUIDE_SLUGS[p.country] || ''}">Full ${p.country} guide →</a>
     </div>
   `).join('');
 }
@@ -145,6 +195,45 @@ fetch('content/visas.json')
     document.getElementById('cardGrid').innerHTML = '<p style="color:var(--ink-faint);">Could not load visa data — check that content/visas.json is uploaded.</p>';
     console.error(err);
   });
+
+document.getElementById('quizSubmit').addEventListener('click', () => {
+  const income = document.querySelector('input[name="q-income"]:checked')?.value;
+  const savings = document.querySelector('input[name="q-savings"]:checked')?.value;
+  const duration = document.querySelector('input[name="q-duration"]:checked')?.value;
+  const resultBox = document.getElementById('quizResult');
+
+  if (!income || !savings || !duration) {
+    resultBox.innerHTML = '<p style="color:var(--coral);">Please answer all three questions.</p>';
+    return;
+  }
+
+  let country;
+  if (savings === 'yes') {
+    country = 'Indonesia';
+  } else if (duration === 'short') {
+    country = (income === 'high') ? 'Japan' : 'Vietnam';
+  } else if (duration === 'multi') {
+    country = (income === 'low' || income === 'high') ? 'Thailand' : 'Malaysia';
+  } else {
+    country = (income === 'low') ? 'Thailand' : (income === 'mid') ? 'Philippines' : 'Malaysia';
+  }
+
+  const flag = COUNTRY_FLAG_CODES[country] ? `<span class="fi fi-${COUNTRY_FLAG_CODES[country]}" style="border-radius:3px; margin-right:6px; width:1.1em; height:1.1em; vertical-align:middle; display:inline-block; background-size:cover;"></span>` : '';
+  const slug = COUNTRY_GUIDE_SLUGS[country] || '';
+
+  resultBox.innerHTML = `
+    <p style="font-size:1.05rem;">Based on your answers, take a closer look at: <strong>${flag}${country}</strong></p>
+    <a class="cta" href="guide.html?slug=${slug}" style="margin-top:8px; display:inline-block;">Read the ${country} guide →</a>
+  `;
+
+  const targetCard = document.querySelector(`[data-country="${country}"]`);
+  if (targetCard) {
+    targetCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    targetCard.style.transition = 'box-shadow 0.3s ease';
+    targetCard.style.boxShadow = '0 0 0 3px var(--teal)';
+    setTimeout(() => { targetCard.style.boxShadow = ''; }, 2500);
+  }
+});
 
 document.querySelectorAll('.filters button').forEach(btn=>{
   btn.addEventListener('click', ()=>{
