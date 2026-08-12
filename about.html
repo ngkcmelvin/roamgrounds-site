@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About Roamgrounds | Visa, Insurance & eSIM Research for Asia-Pacific</title>
+<meta name="description" content="Who's behind Roamgrounds and how we research digital nomad visas, insurance, and eSIM comparisons for Asia-Pacific.">
+<link rel="canonical" href="https://www.roamgrounds.com/about.html">
+
+<link rel="icon" type="image/svg+xml" href="logo-icon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="192x192" href="favicon-192.png">
+
+<meta property="og:title" content="About Roamgrounds">
+<meta property="og:description" content="Who's behind Roamgrounds and how we research our visa, insurance, and eSIM comparisons.">
+<meta property="og:image" content="https://roamgrounds.com/og-image.png">
+<meta property="og:url" content="https://roamgrounds.com/about.html">
+<meta property="og:type" content="website">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<style>
+  .about-body { max-width: 720px; margin: 0 auto; line-height: 1.7; }
+  .about-body h2 { margin-top: 2em; }
+  .about-body p { margin: 1em 0; }
+</style>
+</head>
+<body class="dot-bg">
+
+  <header class="site">
+    <div class="brand"><a href="index.html"><img src="logo-icon.svg" alt="" width="26" height="26"> Roamgrounds</a></div>
+    <nav class="site">
+      <a href="index.html#compare">Visa Compare</a>
+      <a href="guides.html">Guides</a>
+      <a href="esim.html">eSIM &amp; Connectivity</a>
+      <a href="about.html" class="current">About</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="hero-inner" style="display:block;">
+      <div class="breadcrumb"><a href="index.html">Roamgrounds</a> / About</div>
+      <h1>About Roamgrounds</h1>
+    </div>
+  </section>
+
+  <section class="counter">
+    <article class="about-body">
+      <p>Roamgrounds exists because comparing digital nomad visas across Asia-Pacific means digging through immigration portals, embassy pages, and outdated blog posts that haven't been touched since the rules changed. We built this site to put the real numbers — income thresholds, actual fees, current renewal terms — in one place, and to keep it updated as programs like Thailand's DTV, Malaysia's DE Rantau, and the newly-launched Philippines Digital Nomad Visa continue to evolve.</p>
+
+      <h2>How we research</h2>
+      <p>Every visa, insurance, and eSIM comparison on this site is built from official immigration sources, provider documentation, and current reporting — cross-checked rather than taken from a single source. Where rules are genuinely ambiguous or actively changing (Indonesia's enforcement climate, Japan's renewal terms, tax treatment across jurisdictions), we say so directly instead of smoothing over the uncertainty.</p>
+
+      <h2>What we're not</h2>
+      <p>Roamgrounds isn't a law firm, tax advisory, or immigration consultancy. Nothing here is legal, tax, or immigration advice — it's orientation to help you ask the right questions before you talk to an official source or licensed advisor. Visa rules vary by nationality and change without much notice, so always confirm current requirements directly with the relevant embassy or immigration portal before making a decision.</p>
+
+      <h2>How this site makes money</h2>
+      <p>Roamgrounds contains affiliate links to eSIM providers, insurance companies, and other travel-related services. If you sign up through one of these links, we may earn a commission at no extra cost to you. We only link to services we've genuinely researched and would recommend regardless of commission — the comparisons themselves aren't influenced by which provider pays more.</p>
+
+      <h2>Get in touch</h2>
+      <p>Spot outdated information, or have a country or topic you'd like covered? We'd rather hear about it and fix it than have outdated numbers sitting on the site.</p>
+
+      <form id="contactForm" style="margin-top:24px; display:flex; flex-direction:column; gap:14px; max-width:480px;">
+        <div>
+          <label for="cf-name" style="display:block; font-size:0.85rem; font-weight:600; margin-bottom:6px;">Name</label>
+          <input type="text" id="cf-name" name="name" required class="search-wrap-input" style="width:100%; padding:10px 14px; border:1px solid var(--line); border-radius:8px; font-family:'Inter', sans-serif; font-size:0.95rem;">
+        </div>
+        <div>
+          <label for="cf-email" style="display:block; font-size:0.85rem; font-weight:600; margin-bottom:6px;">Email</label>
+          <input type="email" id="cf-email" name="email" required style="width:100%; padding:10px 14px; border:1px solid var(--line); border-radius:8px; font-family:'Inter', sans-serif; font-size:0.95rem;">
+        </div>
+        <div>
+          <label for="cf-message" style="display:block; font-size:0.85rem; font-weight:600; margin-bottom:6px;">Message</label>
+          <textarea id="cf-message" name="message" required rows="5" style="width:100%; padding:10px 14px; border:1px solid var(--line); border-radius:8px; font-family:'Inter', sans-serif; font-size:0.95rem; resize:vertical;"></textarea>
+        </div>
+        <button type="submit" class="cta" style="align-self:flex-start; cursor:pointer; border:none;">Send message →</button>
+        <p id="cf-status" style="font-size:0.85rem; margin-top:4px;"></p>
+      </form>
+
+      <script>
+        const cfForm = document.getElementById('contactForm');
+        const cfStatus = document.getElementById('cf-status');
+        cfForm.addEventListener('submit', function(e){
+          e.preventDefault();
+          cfStatus.textContent = 'Sending...';
+          cfStatus.style.color = 'var(--ink-faint)';
+          fetch('https://formspree.io/f/mkjwrlan', {
+            method: 'POST',
+            headers: { 'Accept': 'application/json' },
+            body: new FormData(cfForm)
+          }).then(response => {
+            if (response.ok) {
+              cfStatus.textContent = "Thanks — your message has been sent. We'll get back to you soon.";
+              cfStatus.style.color = 'var(--teal)';
+              cfForm.reset();
+            } else {
+              cfStatus.textContent = "Something went wrong — please try again, or check back later.";
+              cfStatus.style.color = 'var(--coral)';
+            }
+          }).catch(() => {
+            cfStatus.textContent = "Something went wrong — please try again, or check back later.";
+            cfStatus.style.color = 'var(--coral)';
+          });
+        });
+      </script>
+    </article>
+  </section>
+
+  <footer>
+    <div class="inner">
+      <p>Roamgrounds is an independent comparison resource. This page may contain affiliate links; we may earn a commission at no extra cost to you.</p>
+      <p class="mono">© 2026 Roamgrounds</p>
+    </div>
+  </footer>
+
+</body>
+</html>
