@@ -48,6 +48,7 @@ collections:
               - {label: "Read Time", name: "readTime", widget: "string", hint: "e.g. 8 min"}
               - {label: "Tags", name: "tags", widget: "list"}
               - {label: "Summary", name: "summary", widget: "text"}
+              - {label: "Header Image", name: "headerImage", widget: "image", required: false, hint: "Optional banner shown at the top of the guide and used for social sharing previews. Upload a real photo — see sourcing guidance in chat for where to get free, properly-licensed images."}
               - {label: "Full Guide Content", name: "body", widget: "markdown", required: false, hint: "Leave blank for now if this guide isn't written yet — the card will show but the 'Read guide' link won't work until this has content."}
 
   - name: "visas"
