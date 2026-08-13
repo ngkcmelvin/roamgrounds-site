@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Resources & Recommended Services | Roamgrounds</title>
+<meta name="description" content="Every eSIM, insurance, and visa service partner Roamgrounds actually recommends — in one place.">
+<link rel="canonical" href="https://www.roamgrounds.com/resources.html">
+
+<link rel="icon" type="image/svg+xml" href="logo-icon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="192x192" href="favicon-192.png">
+
+<meta property="og:title" content="Resources & Recommended Services | Roamgrounds">
+<meta property="og:description" content="Every eSIM, insurance, and visa service partner Roamgrounds actually recommends — in one place.">
+<meta property="og:image" content="https://roamgrounds.com/og-image.png">
+<meta property="og:url" content="https://roamgrounds.com/resources.html">
+<meta property="og:type" content="website">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<style>
+  .resource-body { max-width: 760px; margin: 0 auto; }
+  .resource-note { font-size: 0.85rem; color: var(--ink-faint); margin-top: 6px; }
+  .coming-soon-box { text-align:center; padding: 40px 20px; color: var(--ink-faint); border: 1px dashed var(--line); border-radius: 12px; }
+</style>
+</head>
+<body class="dot-bg">
+
+  <header class="site">
+    <div class="brand"><a href="index.html"><img src="logo-icon.svg" alt="" width="26" height="26"> Roamgrounds</a></div>
+    <nav class="site">
+      <a href="index.html#compare">Visa Compare</a>
+      <a href="guides.html">Guides</a>
+      <a href="esim.html">eSIM &amp; Connectivity</a>
+      <a href="about.html">About</a>
+      <a href="resources.html" class="current">Resources</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="hero-inner" style="display:block;">
+      <div class="breadcrumb"><a href="index.html">Roamgrounds</a> / Resources</div>
+      <span class="eyebrow">The short list</span>
+      <h1>Everything we actually recommend.</h1>
+      <p class="lede" style="max-width:640px;">Every service on this page is one we've researched and would recommend regardless of commission. If you sign up through a link here, we may earn a commission at no extra cost to you — see our <a href="about.html">About page</a> for more on how that works.</p>
+    </div>
+  </section>
+
+  <section class="counter">
+    <div class="resource-body">
+      <h2>eSIM &amp; Connectivity</h2>
+      <p class="resource-note" style="margin-bottom:20px;">Full comparison with pricing and coverage on our <a href="esim.html">eSIM &amp; Connectivity page</a>.</p>
+      <div class="grid" id="esimResourceGrid"></div>
+    </div>
+  </section>
+
+  <section class="counter">
+    <div class="resource-body">
+      <h2>Insurance</h2>
+      <div class="coming-soon-box">
+        We're currently in the process of partnering with nomad insurance providers. Check back soon, or read our <a href="guide.html?slug=nomad-insurance-guide">insurance guide</a> for our current unbiased recommendations in the meantime.
+      </div>
+    </div>
+  </section>
+
+  <section class="counter">
+    <div class="resource-body">
+      <h2>Visa &amp; Travel Services</h2>
+      <div class="coming-soon-box">
+        We're currently in the process of partnering with visa processing and relocation services. Check back soon, or browse our <a href="index.html#compare">visa comparison</a> and <a href="guide.html?slug=visa-agents">visa agents guide</a> in the meantime.
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="inner">
+      <p>Roamgrounds is an independent comparison resource. This page contains affiliate links; we may earn a commission at no extra cost to you.</p>
+      <p class="mono">© 2026 Roamgrounds</p>
+    </div>
+  </footer>
+
+<script>
+fetch('content/esim.json')
+  .then(r => r.json())
+  .then(data => {
+    const active = data.providers.filter(p => p.affiliateUrl);
+    const grid = document.getElementById('esimResourceGrid');
+    if (!active.length) {
+      grid.innerHTML = `<div class="coming-soon-box" style="grid-column:1/-1;">More eSIM partnerships coming soon — check our <a href="esim.html">full comparison</a> in the meantime.</div>`;
+      return;
+    }
+    grid.innerHTML = active.map(p => `
+      <div class="card">
+        <div class="eyebrow-label">${p.provider}</div>
+        <h3>${p.name}</h3>
+        <div class="rows">
+          <div class="row"><span class="k">Coverage</span><span class="v">${p.coverage}</span></div>
+          <div class="row"><span class="k">Price</span><span class="v">${p.price}</span></div>
+        </div>
+        <a class="cta" href="${p.affiliateUrl}" target="_blank" rel="sponsored noopener">${p.ctaLabel || 'Get this eSIM'} →</a>
+      </div>
+    `).join('');
+  })
+  .catch(err => {
+    document.getElementById('esimResourceGrid').innerHTML = '<p style="color:var(--ink-faint);">Could not load partner data.</p>';
+    console.error(err);
+  });
+</script>
+</body>
+</html>
