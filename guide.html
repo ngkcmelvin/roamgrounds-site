@@ -96,7 +96,7 @@ if (!slug) {
   fetch('content/guides.json')
     .then(r => r.json())
     .then(data => {
-      const guide = data.guides.find(g => g.slug === slug);
+      const guide = data.guides.find(g => (g.slug || '').trim().toLowerCase() === slug.trim().toLowerCase());
       if (!guide || !guide.body) {
         showNotFound();
         return;
