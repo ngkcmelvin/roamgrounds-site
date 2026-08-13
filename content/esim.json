@@ -1,100 +1,149 @@
 {
   "providers": [
     {
-      "provider": "Airalo",
-      "name": "Asialink Regional Plan",
+      "affiliateUrl": "",
       "color": "coral",
-      "stickerLabel": "30+ COUNTRIES",
-      "type": "core",
+      "ctaLabel": "Get this eSIM",
       "coverage": "30+ Asian countries incl. India",
-      "data": "2GB/15d to 20GB/30d",
       "price": "~$6 to ~$24",
+      "data": "2GB/15d to 20GB/30d",
+      "name": "Asialink Regional Plan",
       "tethering": "Allowed",
-      "flagCodes": ["th", "my", "id", "jp", "vn", "ph", "in"],
+      "provider": "Airalo",
+      "sortKeys": {
+        "india": true,
+        "unlimited": false
+      },
       "note": "The safest default recommendation — broadest coverage and the only major regional plan that reliably includes India.",
-      "affiliateUrl": "",
-      "ctaLabel": "Get this eSIM",
-      "sortKeys": { "india": true, "unlimited": false }
+      "stickerLabel": "30+ COUNTRIES",
+      "flagCodes": [
+        "th",
+        "my",
+        "id",
+        "jp",
+        "vn",
+        "ph",
+        "in"
+      ],
+      "type": "core"
     },
     {
-      "provider": "Holafly",
-      "name": "Asia Unlimited",
+      "affiliateUrl": "",
       "color": "teal",
-      "stickerLabel": "17 COUNTRIES",
-      "type": "core",
+      "ctaLabel": "Get this eSIM",
       "coverage": "17 countries across Asia",
-      "data": "Unlimited",
       "price": "~$45 / 14 days",
+      "data": "Unlimited",
+      "name": "Asia Unlimited",
       "tethering": "Limited on unlimited plans",
-      "flagCodes": ["th", "my", "id", "jp", "kr", "vn"],
+      "provider": "Holafly",
+      "sortKeys": {
+        "india": false,
+        "unlimited": true
+      },
       "note": "Best for heavy data users who don't want to track GB usage — trade-off is restricted hotspot sharing.",
-      "affiliateUrl": "",
-      "ctaLabel": "Get this eSIM",
-      "sortKeys": { "india": false, "unlimited": true }
+      "stickerLabel": "17 COUNTRIES",
+      "flagCodes": [
+        "th",
+        "my",
+        "id",
+        "jp",
+        "kr",
+        "vn"
+      ],
+      "type": "core"
     },
     {
-      "provider": "Nomad eSIM",
-      "name": "SEA + Japan/Korea Regional",
+      "affiliateUrl": "lotusflareinc.pxf.io/xJRR3k",
       "color": "sun",
-      "stickerLabel": "AUTO-SWITCH",
-      "type": "core",
+      "ctaLabel": "Get this eSIM",
       "coverage": "Japan, Korea, and Southeast Asia circuit",
-      "data": "20GB/30d",
       "price": "~$43.50",
+      "data": "20GB/30d",
+      "name": "SEA + Japan/Korea Regional",
       "tethering": "Allowed — key selling point",
-      "flagCodes": ["jp", "kr", "th", "vn", "kh"],
+      "provider": "Nomad eSIM",
+      "sortKeys": {
+        "india": false,
+        "unlimited": false
+      },
       "note": "Automatically switches carriers as you cross borders — the top pick for multi-country circuits like Japan+Korea or a Thailand-Vietnam-Cambodia loop.",
-      "affiliateUrl": "",
-      "ctaLabel": "Get this eSIM",
-      "sortKeys": { "india": false, "unlimited": false }
+      "stickerLabel": "AUTO-SWITCH",
+      "flagCodes": [
+        "jp",
+        "kr",
+        "th",
+        "vn",
+        "kh"
+      ],
+      "type": "core"
     },
     {
-      "provider": "Saily",
-      "name": "Asia Value Plan",
+      "affiliateUrl": "",
       "color": "grape",
-      "stickerLabel": "LOWEST $/GB",
-      "type": "core",
+      "ctaLabel": "Get this eSIM",
       "coverage": "Major Asia destinations",
-      "data": "Fixed tiers",
       "price": "Lowest per-GB in the region",
-      "tethering": "Allowed",
-      "flagCodes": ["th", "my", "id", "jp", "ph"],
-      "note": "The budget pick when a traveler just wants the cheapest reliable data, not brand recognition.",
-      "affiliateUrl": "",
-      "ctaLabel": "Get this eSIM",
-      "sortKeys": { "india": false, "unlimited": false }
-    },
-    {
-      "provider": "GigSky",
-      "name": "Global + In-Flight/Cruise",
-      "color": "pink",
-      "stickerLabel": "190+ CTRY",
-      "type": "specialist",
-      "coverage": "190+ countries, 400 network partners",
-      "data": "Flexible tiers",
-      "price": "Competitive, varies",
-      "tethering": "Allowed",
-      "flags": "🌍✈️🚢",
-      "note": "The only major provider with in-flight and cruise/maritime connectivity — a genuinely distinct use case worth its own guide.",
-      "affiliateUrl": "",
-      "ctaLabel": "Get this eSIM",
-      "sortKeys": { "india": false, "unlimited": false }
-    },
-    {
-      "provider": "BNESIM",
-      "name": "Single-Country Plans",
-      "color": "teal",
-      "stickerLabel": "BUILT-IN VPN",
-      "type": "specialist",
-      "coverage": "Single-country focus, cheaper than regional bundles",
       "data": "Fixed tiers",
-      "price": "Often 50% less than regional plans for 1-2 country trips",
+      "name": "Asia Value Plan",
       "tethering": "Allowed",
-      "flagCodes": ["th", "my", "id"],
-      "note": "Best when a traveler is staying in just one or two countries — regional bundles overpay for coverage they won't use.",
+      "provider": "Saily",
+      "sortKeys": {
+        "india": false,
+        "unlimited": false
+      },
+      "note": "The budget pick when a traveler just wants the cheapest reliable data, not brand recognition.",
+      "stickerLabel": "LOWEST $/GB",
+      "flagCodes": [
+        "th",
+        "my",
+        "id",
+        "jp",
+        "ph"
+      ],
+      "type": "core"
+    },
+    {
       "affiliateUrl": "",
+      "color": "pink",
       "ctaLabel": "Get this eSIM",
-      "sortKeys": { "india": false, "unlimited": false }
+      "flags": "🌍✈️🚢",
+      "coverage": "190+ countries, 400 network partners",
+      "price": "Competitive, varies",
+      "data": "Flexible tiers",
+      "name": "Global + In-Flight/Cruise",
+      "tethering": "Allowed",
+      "provider": "GigSky",
+      "sortKeys": {
+        "india": false,
+        "unlimited": false
+      },
+      "note": "The only major provider with in-flight and cruise/maritime connectivity — a genuinely distinct use case worth its own guide.",
+      "stickerLabel": "190+ CTRY",
+      "type": "specialist"
+    },
+    {
+      "affiliateUrl": "",
+      "color": "teal",
+      "ctaLabel": "Get this eSIM",
+      "coverage": "Single-country focus, cheaper than regional bundles",
+      "price": "Often 50% less than regional plans for 1-2 country trips",
+      "data": "Fixed tiers",
+      "name": "Single-Country Plans",
+      "tethering": "Allowed",
+      "provider": "BNESIM",
+      "sortKeys": {
+        "india": false,
+        "unlimited": false
+      },
+      "note": "Best when a traveler is staying in just one or two countries — regional bundles overpay for coverage they won't use.",
+      "stickerLabel": "BUILT-IN VPN",
+      "flagCodes": [
+        "th",
+        "my",
+        "id"
+      ],
+      "type": "specialist"
     }
   ]
 }
