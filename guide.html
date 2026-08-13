@@ -14,18 +14,19 @@
 
 <meta id="ogTitle" property="og:title" content="">
 <meta id="ogDesc" property="og:description" content="">
-<meta property="og:image" content="https://roamgrounds.com/og-image.png">
+<meta id="ogImage" property="og:image" content="https://roamgrounds.com/og-image.png">
 <meta property="og:type" content="article">
 
 <meta name="twitter:card" content="summary_large_image">
 <meta id="twTitle" name="twitter:title" content="">
 <meta id="twDesc" name="twitter:description" content="">
-<meta name="twitter:image" content="https://roamgrounds.com/og-image.png">
+<meta id="twImage" name="twitter:image" content="https://roamgrounds.com/og-image.png">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/12.0.0/marked.min.js"></script>
+<script type="application/ld+json" id="guideSchema"></script>
 <style>
   .guide-body { max-width: 720px; margin: 0 auto; line-height: 1.7; }
   .guide-body h2 { margin-top: 2em; }
@@ -34,6 +35,7 @@
   .guide-body a { color: var(--teal); }
   .guide-meta-row { display:flex; align-items:center; gap:12px; justify-content:center; margin-bottom: 24px; }
   .not-found { text-align:center; padding: 80px 20px; color: var(--ink-faint); }
+  .guide-banner { width:100%; max-height:340px; object-fit:cover; border-radius:16px; margin-bottom:28px; }
 </style>
 </head>
 <body class="dot-bg">
@@ -58,6 +60,7 @@
   </section>
 
   <section class="counter">
+    <div id="guideBannerWrap" style="max-width:720px; margin:0 auto;"></div>
     <article id="guideBody" class="guide-body"></article>
     <div id="relatedGuides" class="guide-body" style="margin-top:48px;"></div>
   </section>
@@ -110,6 +113,10 @@ if (!slug) {
       document.getElementById('twDesc').setAttribute('content', guide.summary || '');
       document.getElementById('canonicalLink').setAttribute('href', 'https://www.roamgrounds.com/guide.html?slug=' + slug);
 
+      const bannerUrl = guide.headerImage ? ('https://roamgrounds.com' + guide.headerImage) : 'https://roamgrounds.com/og-image.png';
+      document.getElementById('ogImage').setAttribute('content', bannerUrl);
+      document.getElementById('twImage').setAttribute('content', bannerUrl);
+
       document.getElementById('breadcrumbTitle').textContent = guide.title;
       document.getElementById('guideTitle').textContent = guide.title;
 
@@ -123,7 +130,23 @@ if (!slug) {
         <span class="tag ${guide.color}">${guide.category}</span>
         <span class="mono" style="font-size:0.8rem; color:var(--ink-faint);">${guide.readTime}</span>
       `;
+
+      if (guide.headerImage) {
+        document.getElementById('guideBannerWrap').innerHTML = `<img class="guide-banner" src="${guide.headerImage}" alt="${guide.title}">`;
+      }
+
       document.getElementById('guideBody').innerHTML = marked.parse(guide.body);
+
+      document.getElementById('guideSchema').textContent = JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": guide.title,
+        "description": guide.summary || '',
+        "image": bannerUrl,
+        "author": { "@type": "Organization", "name": "Roamgrounds" },
+        "publisher": { "@type": "Organization", "name": "Roamgrounds" },
+        "mainEntityOfPage": "https://www.roamgrounds.com/guide.html?slug=" + slug
+      });
 
       const related = data.guides
         .filter(g => g.slug && g.body && g.slug !== guide.slug)
